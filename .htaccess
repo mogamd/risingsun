@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^horticulturers\.co.za [OR]
+RewriteCond %{HTTP_HOST} ^www\.horticulturers\.co.za
+RewriteRule .* https://horticulturers.co.za%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
